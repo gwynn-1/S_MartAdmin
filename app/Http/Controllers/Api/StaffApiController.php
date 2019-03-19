@@ -28,7 +28,7 @@ class StaffApiController extends Controller
             "data"=>[
                 'access_token' => $token,
                 'token_type'   => 'bearer',
-                'expires_in'   => auth('api')->factory()->getTTL() * 60
+                'expires_in'   => auth('api')->factory()->getTTL() * 60*12
             ]
         ]);
     }
@@ -38,6 +38,29 @@ class StaffApiController extends Controller
         auth('api')->logout();
 
         return response()->json(['status' => 'success']);
+    }
+
+    public function checkLogin(){
+        try {
+            $r = auth('api')->check();
+            if($r){
+                return response()->json([
+                    "status"=>"success"
+                ]);
+            }
+        } catch (\Tymon\JWTAuth\Exceptions\TokenExpiredException $e) {
+
+            // do whatever you want to do if a token is expired
+            dd($e);
+
+        } catch (\Tymon\JWTAuth\Exceptions\TokenInvalidException $e) {
+
+            // do whatever you want to do if a token is invalid
+            dd($e);
+        } catch (\Tymon\JWTAuth\Exceptions\JWTException $e) {
+            dd($e);
+            // do whatever you want to do if a token is not present
+        }
     }
 
     public function getStaff(Request $request){

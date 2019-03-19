@@ -19,6 +19,7 @@ use Illuminate\Http\Request;
 Route::group([ 'prefix' => 'api', 'namespace' => 'Api'],function () {
     Route::post('login', 'StaffApiController@login')->name("login");
     Route::post('logout', 'StaffApiController@logout')->name("logout");
+    Route::get('check-login', 'StaffApiController@checkLogin')->name("check-login");
 });
 
 
