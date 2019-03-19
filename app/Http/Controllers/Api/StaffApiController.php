@@ -47,6 +47,10 @@ class StaffApiController extends Controller
                 return response()->json([
                     "status"=>"success"
                 ]);
+            }else{
+                return response()->json([
+                    "status"=>"failed"
+                ]);
             }
         } catch (\Tymon\JWTAuth\Exceptions\TokenExpiredException $e) {
 
