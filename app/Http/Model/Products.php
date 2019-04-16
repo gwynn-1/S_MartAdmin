@@ -20,7 +20,7 @@ class Products extends Model
 
     protected $table = "product";
     protected $primaryKey = "product_id";
-    protected $fillable =['product_id', 'product_name', 'p_image', 'p_type_id', 'price_origin', 'price', 'p_quantity', 'created_at', 'updated_at'];
+    protected $fillable =['product_id', 'product_name', 'p_image', 'type_id', 'price_origin', 'price', 'p_quantity', 'created_at', 'updated_at'];
     public $timestamps=true;
 
     /*
@@ -43,7 +43,7 @@ class Products extends Model
     |--------------------------------------------------------------------------
     */
     public function ProductType(){
-        return $this->belongsTo("App\Http\Model\ProductType","p_type_id","type_id");
+        return $this->belongsTo("App\Http\Model\ProductType","type_id","type_id");
     }
 
     /*

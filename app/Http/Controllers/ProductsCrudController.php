@@ -45,7 +45,7 @@ class ProductsCrudController extends CrudController
                 'crop' => false, // set to true to allow cropping, false to disable
                 'aspect_ratio' => 0, // ommit or set to 0 to allow any aspect ratio
                 'prefix' => ''],
-            ['name'  => 'p_type_id', // DB column name (will also be the name of the input)
+            ['name'  => 'type_id', // DB column name (will also be the name of the input)
                 'label' => 'Loại sản phẩm', // the human-readable label for the input
                 'type'  => 'select2',
                 'entity'=>'ProductType',
@@ -77,7 +77,7 @@ class ProductsCrudController extends CrudController
                 'prefix'=>'',
                 'width'=>'100px',
                 'height'=>'150px'],
-            ['name'  => 'p_type_id', // DB column name (will also be the name of the input)
+            ['name'  => 'type_id', // DB column name (will also be the name of the input)
                 'label' => 'Loại sản phẩm', // the human-readable label for the input
                 'type'  => 'select',
                 'entity'=>'ProductType',
